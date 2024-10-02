@@ -216,23 +216,19 @@ negative prompt for unconditional conditioning in the sampling process instead o
 
 Originally by: https://github.com/pharmapsychotic/clip-interrogator
 
-CLIP interrogator allows you to retrieve prompt from an image. The prompt won't allow you to reproduce this
-exact image (and sometimes it won't even be close), but it can be a good start.
+CLIP interrogator allows you to create a prompt from an image. The prompt won't result in a perfect reproduction of the image, but it can be a good start.
 
 ![](images/CLIP-interrogate.png)
 
-The first time you run CLIP interrogator it will download few gigabytes of models.
+The first time you run CLIP interrogator it will download a few gigabytes of models.
 
-CLIP interrogator has two parts: one is a BLIP model that creates a text description from the picture.
-Other is a CLIP model that will pick few lines relevant to the picture out of a list. By default, there
-is only one list - a list of artists (from `artists.csv`). You can add more lists by doing the follwoing:
+CLIP interrogator has two parts: one is a BLIP model that creates a text description from the picture, the other is a CLIP model that will pick a few lines relevant to the picture from a list. The default list is `artists.csv`. You can add more lists as follows:
 
- - create `interrogate` directory in same place as web ui
+ - create an `interrogate` directory in same place as webui
  - put text files in it with a relevant description on each line
 
-For example of what text files to use, see https://github.com/pharmapsychotic/clip-interrogator/tree/main/data.
-In fact, you can just take files from there and use them - just skip artists.txt because you already have a list of
-artists in `artists.csv` (or use that too, who's going to stop you). Each file adds one line of text to final description.
+For examples of text files, see https://github.com/pharmapsychotic/clip-interrogator/tree/main/data.
+You can take files from there and use them - just skip artists.txt because you this is already in the default `artists.csv`. Each file adds one line of text to final description.
 If you add ".top3." to filename, for example, `flavors.top3.txt`, three most relevant lines from this file will be
 added to the prompt (other numbers also work).
 
